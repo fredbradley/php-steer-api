@@ -21,7 +21,7 @@ composer require fredbradley/php-steer-api
 ## Usage
 
 ```php
-$service = new SteerConnector($apiKey, $subscriptionKey, $baseUrl);
+$service = new \FredBradley\PhpSteerApi\SteerConnector($apiKey, $subscriptionKey, $baseUrl);
 $service
   ->getAssessmentData(
     filters: [
