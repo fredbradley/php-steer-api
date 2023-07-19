@@ -48,6 +48,11 @@ With no filters set, the API will return all results for the current academic ye
 
 See the [example output here](EXAMPLE.md).
 
+This package uses the Saloon API package to make the HTTP requests. You can read more about that package [here](https://docs.saloon.dev/).
+
+### Caching
+By default the package will cache unique results (based on query) for 10 minutes. It uses the Local Filesystem cache driver from Saloon. You can read more about that [here](https://docs.saloon.dev/digging-deeper/caching-responses). 
+
 ### Testing
 
 ```bash
