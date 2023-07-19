@@ -19,33 +19,39 @@ composer require fredbradley/php-steer-api
 ## Usage
 
 ```php
-$service = new \FredBradley\PhpSteerApi\Client($apiKey, $subscriptionId, $baseUrl);
-$queryBuilder = new \FredBradley\PhpSteerApi\QueryBuilder();
-$query = $queryBuilder->filterHouse('Hufflepuff')->filterCampus('Hogwarts')->setYear(2020);
-$service->get($query);
+$service = new SteerConnector($apiKey, $subscriptionKey, $baseUrl);
+$service
+  ->getAssessmentData(
+    filters: [
+      "house" => "Hufflepuff",
+      "year" => 10
+    ],
+    year: 2019
+  )
+  ->object();
 ```
 
 This will return an object with a `data` property which is an array of objects. Each object is the STEER tracking
 assessment result.
 
-`setYear()` is optional and will default to the current academic year if not set. 
+The second argument in `getAssessmentData` (`year`) is optional and will default to the current academic year if not set. 
 
 Filters available are: 
-* `filterHouse()` - filter by house name
-* `filterCampus()` - filter by campus name
-* `filterYear()` - filter by year group
-* `filterMisId()` - filter by pupil's MIS ID
-* `filterGender()` - filter by gender (desired value is `m` or `f`)
-* `filterRound()` - filter by round (as in the round of assessment)
+* `house` - filter by house name
+* `campus` - filter by campus name
+* `year` - filter by year group
+* `mis_id` - filter by pupil's MIS ID
+* `gender` - filter by gender (desired value is `m` or `f`)
+* `round` - filter by round (as in the round of assessment)
 
 With no filters set, the API will return all results for the current academic year.
 
-See the example output here: 
+See the [example output here](EXAMPLE.md).
 
 ### Testing
 
 ```bash
-composer test
+composer pest
 ```
 
 ### Changelog
