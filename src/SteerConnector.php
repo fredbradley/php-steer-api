@@ -5,6 +5,7 @@ namespace FredBradley\PhpSteerApi;
 use FredBradley\PhpSteerApi\Requests\QueryDataRequest;
 use Saloon\Exceptions\InvalidResponseClassException;
 use Saloon\Exceptions\PendingRequestException;
+use Saloon\Http\Response;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class SteerConnector extends \Saloon\Http\Connector
@@ -21,12 +22,12 @@ class SteerConnector extends \Saloon\Http\Connector
     /**
      * @param array<string, string|int> $filters
      * @param int|null $year
-     * @return object
+     * @return Response
      * @throws InvalidResponseClassException
      * @throws PendingRequestException
      * @throws \ReflectionException
      */
-    public function getAssessmentData(array $filters, ?int $year = null): object
+    public function getAssessmentData(array $filters, ?int $year = null): Response
     {
         return $this->send(new QueryDataRequest($filters, $year))->throw();
     }
@@ -37,7 +38,6 @@ class SteerConnector extends \Saloon\Http\Connector
     public function resolveBaseUrl(): string
     {
         return $this->baseUrl;
-        // TODO: Implement resolveBaseUrl() method.
     }
 
     protected function defaultHeaders(): array
