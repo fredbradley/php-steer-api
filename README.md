@@ -8,7 +8,9 @@ STEER Education are in the process of developing an API to access the assessment
 
 This package is a PHP wrapper to the STEER API. Any suggestions or improvements are welcome both in terms of data output and the fluency of interacting with the code.
 
-## Installation
+## Installation & Requirements
+
+This package requires PHP 8.2 and above.
 
 You can install the package via composer:
 
@@ -34,7 +36,7 @@ $service
 This will return an object with a `data` property which is an array of objects. Each object is the STEER tracking
 assessment result.
 
-The second argument in `getAssessmentData` (`year`) is optional and will default to the current academic year if not set. 
+The second argument in `getAssessmentData` (`year`) is optional and will default to the current academic year if not set. The STEER API carries data for 5 yars.
 
 Filters available are: 
 * `house` - filter by house name
