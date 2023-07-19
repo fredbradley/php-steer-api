@@ -3,6 +3,7 @@
 namespace FredBradley\PhpSteerApi;
 
 use FredBradley\PhpSteerApi\Requests\QueryDataRequest;
+use ReflectionException;
 use Saloon\Exceptions\InvalidResponseClassException;
 use Saloon\Exceptions\PendingRequestException;
 use Saloon\Http\Response;
@@ -25,7 +26,7 @@ class SteerConnector extends \Saloon\Http\Connector
      * @return Response
      * @throws InvalidResponseClassException
      * @throws PendingRequestException
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function getAssessmentData(array $filters, ?int $year = null): Response
     {
