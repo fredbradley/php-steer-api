@@ -4,11 +4,12 @@ namespace FredBradley\PhpSteerApi;
 
 use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
+use Saloon\CachePlugin\Data\CachedResponse;
 use Saloon\CachePlugin\Drivers\FlysystemDriver;
 
 class Cache
 {
-    public static function fileSystem()
+    public static function fileSystem(): Filesystem
     {
         return new Filesystem(
             new LocalFilesystemAdapter(
@@ -32,7 +33,11 @@ class Cache
             ->filter(function ($attributes) {
                 $file = self::fileSystem()->read($attributes->path());
                 $cachedResponse = unserialize($file);
-                return $cachedResponse->hasExpired();
+                if ($cachedResponse instanceof CachedResponse) {
+                    return $cachedResponse->hasExpired();
+                } else {
+                    return false;
+                }
             })
             ->toArray();
 

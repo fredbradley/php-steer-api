@@ -3,11 +3,8 @@
 namespace FredBradley\PhpSteerApi\Requests;
 
 use FredBradley\PhpSteerApi\Cache;
-use League\Flysystem\Filesystem;
-use League\Flysystem\Local\LocalFilesystemAdapter;
 use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Contracts\Driver;
-use Saloon\CachePlugin\Drivers\FlysystemDriver;
 use Saloon\CachePlugin\Traits\HasCaching;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Contracts\PendingRequest;
@@ -29,13 +26,21 @@ class QueryDataRequest extends Request implements HasBody, Cacheable
     public function __construct(protected array $filters, protected ?int $year = null)
     {
     }
+
+    /**
+     * @throws \Exception
+     */
     protected function cacheKey(PendingRequest $pendingRequest): ?string
     {
         $var = [
             'filters' => $this->filters,
             'year' => $this->year,
         ];
-        return md5(json_encode($var));
+        $encoded = json_encode($var);
+        if ($encoded === false) {
+            throw new \Exception('Unable to encode JSON');
+        }
+        return md5($encoded);
 
     }
 

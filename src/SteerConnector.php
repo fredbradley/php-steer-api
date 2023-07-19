@@ -19,9 +19,12 @@ class SteerConnector extends \Saloon\Http\Connector
     }
 
     /**
-     * @throws \ReflectionException
+     * @param array<string, string|int> $filters
+     * @param int|null $year
+     * @return object
      * @throws InvalidResponseClassException
      * @throws PendingRequestException
+     * @throws \ReflectionException
      */
     public function getAssessmentData(array $filters, ?int $year = null): object
     {
