@@ -8,7 +8,9 @@ STEER Education are in the process of developing an API to access the assessment
 
 This package is a PHP wrapper to the STEER API. Any suggestions or improvements are welcome both in terms of data output and the fluency of interacting with the code.
 
-## Installation
+## Installation & Requirements
+
+This package requires PHP 8.2 and above.
 
 You can install the package via composer:
 
@@ -19,33 +21,44 @@ composer require fredbradley/php-steer-api
 ## Usage
 
 ```php
-$service = new \FredBradley\PhpSteerApi\Client($apiKey, $subscriptionId, $baseUrl);
-$queryBuilder = new \FredBradley\PhpSteerApi\QueryBuilder();
-$query = $queryBuilder->filterHouse('Hufflepuff')->filterCampus('Hogwarts')->setYear(2020);
-$service->get($query);
+$service = new \FredBradley\PhpSteerApi\SteerConnector($apiKey, $subscriptionKey, $baseUrl);
+$service
+  ->getAssessmentData(
+    filters: [
+      "house" => "Hufflepuff",
+      "year" => 10
+    ],
+    year: 2019
+  )
+  ->object();
 ```
 
 This will return an object with a `data` property which is an array of objects. Each object is the STEER tracking
 assessment result.
 
-`setYear()` is optional and will default to the current academic year if not set. 
+The second argument in `getAssessmentData` (`year`) is optional and will default to the current academic year if not set. The STEER API carries data for 5 yars.
 
 Filters available are: 
-* `filterHouse()` - filter by house name
-* `filterCampus()` - filter by campus name
-* `filterYear()` - filter by year group
-* `filterMisId()` - filter by pupil's MIS ID
-* `filterGender()` - filter by gender (desired value is `m` or `f`)
-* `filterRound()` - filter by round (as in the round of assessment)
+* `house` - filter by house name
+* `campus` - filter by campus name
+* `year` - filter by year group
+* `mis_id` - filter by pupil's MIS ID
+* `gender` - filter by gender (desired value is `m` or `f`)
+* `round` - filter by round (as in the round of assessment)
 
 With no filters set, the API will return all results for the current academic year.
 
-See the example output here: 
+See the [example output here](EXAMPLE.md).
+
+This package uses the Saloon API package to make the HTTP requests. You can read more about that package [here](https://docs.saloon.dev/).
+
+### Caching
+By default the package will cache unique results (based on query) for 10 minutes. It uses the Local Filesystem cache driver from Saloon. You can read more about that [here](https://docs.saloon.dev/digging-deeper/caching-responses). 
 
 ### Testing
 
 ```bash
-composer test
+composer pest
 ```
 
 ### Changelog
