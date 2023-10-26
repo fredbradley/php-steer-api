@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6773d40393eceb12075e9973440467be",
+    "content-hash": "009ab510d8c5a8429421dc3511349632",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -743,21 +743,21 @@
         },
         {
             "name": "saloonphp/cache-plugin",
-            "version": "v2.3.1",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/saloonphp/cache-plugin.git",
-                "reference": "cba27ba48cc1bec359bd1353c7b6a8998cee94ea"
+                "reference": "9ed8efd0e08902ee105249c4d8d55edc0e8dc864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saloonphp/cache-plugin/zipball/cba27ba48cc1bec359bd1353c7b6a8998cee94ea",
-                "reference": "cba27ba48cc1bec359bd1353c7b6a8998cee94ea",
+                "url": "https://api.github.com/repos/saloonphp/cache-plugin/zipball/9ed8efd0e08902ee105249c4d8d55edc0e8dc864",
+                "reference": "9ed8efd0e08902ee105249c4d8d55edc0e8dc864",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "saloonphp/saloon": "^2.0"
+                "saloonphp/saloon": "^3.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.13",
@@ -787,36 +787,41 @@
             "description": "Official plugin for caching Saloon responses",
             "support": {
                 "issues": "https://github.com/saloonphp/cache-plugin/issues",
-                "source": "https://github.com/saloonphp/cache-plugin/tree/v2.3.1"
+                "source": "https://github.com/saloonphp/cache-plugin/tree/v3.0.0"
             },
-            "time": "2023-08-10T17:48:38+00:00"
+            "time": "2023-10-02T16:29:40+00:00"
         },
         {
             "name": "saloonphp/saloon",
-            "version": "v2.11.0",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/saloonphp/saloon.git",
-                "reference": "ee27b60ae5ea964d330060600320b8996c3344c6"
+                "reference": "fff7e1e35f02e8a90bfad829d6f2083237a99d6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/saloonphp/saloon/zipball/ee27b60ae5ea964d330060600320b8996c3344c6",
-                "reference": "ee27b60ae5ea964d330060600320b8996c3344c6",
+                "url": "https://api.github.com/repos/saloonphp/saloon/zipball/fff7e1e35f02e8a90bfad829d6f2083237a99d6c",
+                "reference": "fff7e1e35f02e8a90bfad829d6f2083237a99d6c",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^7.5",
+                "guzzlehttp/guzzle": "^7.6",
                 "guzzlehttp/promises": "^1.5 || ^2.0",
+                "guzzlehttp/psr7": "^2.0",
                 "php": "^8.1",
+                "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.1 || ^2.0"
+            },
+            "conflict": {
+                "sammyjo20/saloon": "*"
             },
             "require-dev": {
                 "ext-simplexml": "*",
                 "friendsofphp/php-cs-fixer": "^3.5",
                 "illuminate/collections": "^9.39 || ^10.0",
                 "league/flysystem": "^3.0",
-                "pestphp/pest": "^2.2.3",
+                "pestphp/pest": "^2.6",
                 "phpstan/phpstan": "^1.9",
                 "spatie/ray": "^1.33",
                 "symfony/dom-crawler": "^6.0"
@@ -853,7 +858,7 @@
             ],
             "support": {
                 "issues": "https://github.com/saloonphp/saloon/issues",
-                "source": "https://github.com/saloonphp/saloon/tree/v2.11.0"
+                "source": "https://github.com/saloonphp/saloon/tree/v3.0.2"
             },
             "funding": [
                 {
@@ -865,84 +870,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2023-09-20T17:02:17+00:00"
-        },
-        {
-            "name": "sammyjo20/saloon",
-            "version": "v2.12.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/saloonphp/saloon.git",
-                "reference": "78c804a534e5c998ce6505b381bfd0788fb54358"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/saloonphp/saloon/zipball/78c804a534e5c998ce6505b381bfd0788fb54358",
-                "reference": "78c804a534e5c998ce6505b381bfd0788fb54358",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.5",
-                "guzzlehttp/promises": "^1.5 || ^2.0",
-                "php": "^8.1",
-                "psr/http-message": "^1.1 || ^2.0"
-            },
-            "require-dev": {
-                "ext-simplexml": "*",
-                "friendsofphp/php-cs-fixer": "^3.5",
-                "illuminate/collections": "^9.39 || ^10.0",
-                "league/flysystem": "^3.0",
-                "pestphp/pest": "^2.2.3",
-                "phpstan/phpstan": "^1.9",
-                "spatie/ray": "^1.33",
-                "symfony/dom-crawler": "^6.0"
-            },
-            "suggest": {
-                "illuminate/collections": "Required for the response collect() method.",
-                "symfony/dom-crawler": "Required for the response dom() method."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Saloon\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sam Carré",
-                    "email": "29132017+Sammyjo20@users.noreply.github.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Build beautiful API integrations and SDKs with Saloon",
-            "homepage": "https://github.com/saloonphp/saloon",
-            "keywords": [
-                "api",
-                "api-integrations",
-                "saloon",
-                "sammyjo20",
-                "sdk"
-            ],
-            "support": {
-                "issues": "https://github.com/saloonphp/saloon/issues",
-                "source": "https://github.com/saloonphp/saloon/tree/v2.12.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sammyjo20",
-                    "type": "github"
-                },
-                {
-                    "url": "https://ko-fi.com/sammyjo20",
-                    "type": "ko_fi"
-                }
-            ],
-            "abandoned": "saloonphp/saloon",
-            "time": "2023-09-28T22:02:24+00:00"
+            "time": "2023-10-12T21:43:06+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

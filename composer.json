@@ -17,10 +17,9 @@
     ],
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.7",
         "league/flysystem": "^3.15",
-        "saloonphp/cache-plugin": "^2.3",
-        "sammyjo20/saloon": "^2.8"
+        "saloonphp/cache-plugin": "^3.0",
+        "saloonphp/saloon": "^3.0"
     },
     "require-dev": {
         "laravel/pint": "^1.10",
