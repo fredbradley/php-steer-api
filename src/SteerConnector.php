@@ -21,15 +21,19 @@ class SteerConnector extends \Saloon\Http\Connector
     }
 
     /**
-     * @param array<string, string|int> $filters
+     * @param QueryBuilder|array<string, string|int> $filters
      * @param int|null $year
      * @return Response
      * @throws InvalidResponseClassException
      * @throws PendingRequestException
-     * @throws ReflectionException
+     * @throws ReflectionException|\Throwable
      */
-    public function getAssessmentData(array $filters, ?int $year = null): Response
+    public function getAssessmentData(QueryBuilder|array $filters, ?int $year = null): Response
     {
+        if ($filters instanceof QueryBuilder) {
+            $filters = $filters->filters;
+            $year = $filters->year;
+        }
         return $this->send(new QueryDataRequest($filters, $year))->throw();
     }
 
