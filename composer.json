@@ -54,7 +54,10 @@
         "laravel": {
             "providers": [
                 "FredBradley\\PhpSteerApi\\SteerApiServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Steer": "FredBradley\\PhpSteerApi\\Facades\\Steer"
+            }
         }
     }
 }
