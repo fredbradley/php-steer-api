@@ -1,4 +1,5 @@
 # PHP Wrapper for STEER Tracking Assessments API
+## Now with Laravel Discovery Support
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fredbradley/php-steer-api.svg?style=flat-square)](https://packagist.org/packages/fredbradley/php-steer-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/fredbradley/php-steer-api.svg?style=flat-square)](https://packagist.org/packages/fredbradley/php-steer-api)
@@ -19,7 +20,17 @@ composer require fredbradley/php-steer-api
 ```
 
 ## Usage
+### If within a Laravel Application with Laravel Discovery turned on
+The package will automatically register the `SteerConnector` class as a singleton. You can then use the `SteerConnector` class as a dependency in your classes. 
+You will need to add the following to your `.env` file:
+```dotenv
+STEER_API_KEY=
+STEER_SUBSCRIPTION_KEY=
+STEER_BASE_URL=
+```
+The config file is publishable, but you shouldn't need to change anything.
 
+### If using as a standalone package in any PHP application
 ```php
 $service = new \FredBradley\PhpSteerApi\SteerConnector($apiKey, $subscriptionKey, $baseUrl);
 $service
