@@ -31,8 +31,9 @@ class SteerConnector extends \Saloon\Http\Connector
     public function getAssessmentData(QueryBuilder|array $filters, ?int $year = null): Response
     {
         if ($filters instanceof QueryBuilder) {
-            $filters = $filters->filters;
-            $year = $filters->year;
+            $queryBuilder = $filters;
+            $filters = $queryBuilder->filters;
+            $year = $queryBuilder->year;
         }
         return $this->send(new QueryDataRequest($filters, $year))->throw();
     }
