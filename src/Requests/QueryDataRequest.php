@@ -7,7 +7,7 @@ use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Contracts\Driver;
 use Saloon\CachePlugin\Traits\HasCaching;
 use Saloon\Contracts\Body\HasBody;
-use Saloon\Contracts\PendingRequest;
+use Saloon\Http\PendingRequest;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
