@@ -6,6 +6,7 @@ use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use Saloon\CachePlugin\Data\CachedResponse;
 use Saloon\CachePlugin\Drivers\FlysystemDriver;
+use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 
 class Cache
 {
@@ -20,10 +21,14 @@ class Cache
 
     public static function driver(): FlysystemDriver
     {
-        self::purgeExpired();
-        return new FlysystemDriver(
-            self::fileSystem()
-        );
+        if (class_exists('\Illuminate\Support\Facades\Cache')) {
+            return new LaravelCacheDriver(\Illuminate\Support\Facades\Cache::getDefaultDriver());
+        } else {
+            self::purgeExpired();
+            return new FlysystemDriver(
+                self::fileSystem()
+            );
+        }
     }
 
     public static function purgeExpired(): void
