@@ -3,7 +3,7 @@ Here is an example of the output:
 {
     "data": [
         {
-            "sn_in": "",
+            "sn_in": "SN",
             "sc_out": 8.25,
             "gender": "m",
             "year": 9,
@@ -13,12 +13,13 @@ Here is an example of the output:
             "ha_in": "",
             "house": "Gryffindor",
             "sd_in": 5.25,
-            "or_in": "",
+            "or_in": "OR",
             "sn_out": "",
             "tos_out": 7.5,
             "priority_out": "",
-            "priority_in": "",
+            "priority_in": "*",
             "campus": "Hogwarts Academy",
+            "has_action_plan": false,
             "too_out": 7.5,
             "tos_in": 4.5,
             "sci_in": "",
