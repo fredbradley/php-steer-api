@@ -1,5 +1,5 @@
 # PHP Wrapper for STEER Tracking Assessments API
-## Now with Laravel Discovery Support
+## with Laravel Discovery Support
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fredbradley/php-steer-api.svg?style=flat-square)](https://packagist.org/packages/fredbradley/php-steer-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/fredbradley/php-steer-api.svg?style=flat-square)](https://packagist.org/packages/fredbradley/php-steer-api)
