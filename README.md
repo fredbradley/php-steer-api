@@ -21,7 +21,6 @@ composer require fredbradley/php-steer-api
 
 ## Usage
 ### If within a Laravel Application with Laravel Discovery turned on
-The package will automatically register the `SteerConnector` class as a singleton. You can then use the `SteerConnector` class as a dependency in your classes. 
 You will need to add the following to your `.env` file:
 ```dotenv
 STEER_API_KEY=
@@ -29,6 +28,19 @@ STEER_SUBSCRIPTION_KEY=
 STEER_BASE_URL=
 ```
 The config file is publishable, but you shouldn't need to change anything.
+#### Dependency Injection
+The package will automatically register the `SteerConnector` class as a singleton. You can then use the `SteerConnector` class as a dependency in your classes. 
+#### Facade
+There is a facade that goes with the package if that's how you choose to work. Example: 
+```php
+use FredBradley\PhpSteerApi\Facades\Steer;
+use FredBradley\PhpSteerApi\QueryBuilder;
+
+// Set the Query Builder
+$query = (new QueryBuilder())->setYear(2022);
+// Get the Data
+$data = Steer::getAssessmentData($query)->object();
+```
 
 ### If using as a standalone package in any PHP application
 ```php
