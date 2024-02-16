@@ -4,7 +4,6 @@ namespace FredBradley\PhpSteerApi\Requests;
 
 use FredBradley\PhpSteerApi\Cache;
 use Saloon\CachePlugin\Contracts\Cacheable;
-use Saloon\CachePlugin\Contracts\Driver;
 use Saloon\CachePlugin\Drivers\FlysystemDriver;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 use Saloon\CachePlugin\Traits\HasCaching;

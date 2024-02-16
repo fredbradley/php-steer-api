@@ -7,7 +7,7 @@ use League\Flysystem\Local\LocalFilesystemAdapter;
 use Saloon\CachePlugin\Data\CachedResponse;
 use Saloon\CachePlugin\Drivers\FlysystemDriver;
 use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
-use \Illuminate\Support\Facades\Cache as LaravelCache;
+use Illuminate\Support\Facades\Cache as LaravelCache;
 
 class Cache
 {
