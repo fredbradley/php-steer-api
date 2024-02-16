@@ -5,6 +5,8 @@ namespace FredBradley\PhpSteerApi\Requests;
 use FredBradley\PhpSteerApi\Cache;
 use Saloon\CachePlugin\Contracts\Cacheable;
 use Saloon\CachePlugin\Contracts\Driver;
+use Saloon\CachePlugin\Drivers\FlysystemDriver;
+use Saloon\CachePlugin\Drivers\LaravelCacheDriver;
 use Saloon\CachePlugin\Traits\HasCaching;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Http\PendingRequest;
@@ -52,7 +54,7 @@ class QueryDataRequest extends Request implements HasBody, Cacheable
         return 'query-data';
     }
 
-    public function resolveCacheDriver(): Driver
+    public function resolveCacheDriver(): LaravelCacheDriver|FlysystemDriver
     {
         return Cache::driver();
     }
