@@ -4,3 +4,4 @@ vendor
 cache
 .idea
 .phpunit.result.cache
+.phpunit.cache

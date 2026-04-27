@@ -16,18 +16,16 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "league/flysystem": "^3.15",
-        "saloonphp/cache-plugin": "^3.0",
-        "saloonphp/saloon": "^3.0"
+        "saloonphp/cache-plugin": "^3.1",
+        "saloonphp/saloon": "^4.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.10",
+        "laravel/pint": "^1.0",
         "mockery/mockery": "^1.6",
-        "pestphp/pest": "^1.23",
-        "phpstan/phpstan": "^1.10",
-        "phpunit/phpunit": "^9.0"
-    },
+        "pestphp/pest": "^4.0",
+        "phpstan/phpstan": "^2.1"},
     "autoload": {
         "psr-4": {
             "FredBradley\\PhpSteerApi\\": "src"
